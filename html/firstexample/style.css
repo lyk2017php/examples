@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,700|Ubuntu:400,700');
+
+*{
+	font-family: 'Ubuntu', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: 'Dosis', 'Helvetica', 'Arial', sans-serif;
+}
+
+body{
+	color: #212121;
+	margin: 0;
+}
+
+.container{
+	width: 80%;
+	margin: 0 auto;
+}
+
+blockquote{
+	font-style: italic;
+}
+
+a{
+	color: red;
+	transition: color .5s;
+}
+
+a:hover{
+	color: blue;
+}
+
+header{
+	background-image: url('header.jpg');
+	background-size: cover;
+	min-height: 250px;
+}
+
+header h1{
+	color: #fff;
+	font-weight: 100;
+	margin: 0;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.flex-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+table tr>*{
+	padding: 10px;
+}
+
+table tr{
+	background-color: #eee;
+}
+
+table tr:nth-child(even){
+	background-color: #ccc;
+}
+
+table tr:hover{
+	background-color: #efe9c2;
+}
+
+ol li{
+	margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

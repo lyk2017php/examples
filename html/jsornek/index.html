@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>JS Örnek</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css">
+	<link rel="stylesheet" href="style.css">
+	<style>
+	.kisi {
+		width: 500px;
+		margin: 0 auto;
+		border: 1px solid silver;
+	}
+
+	.kisi-resim {
+		width: 200px;
+		float: left;
+	}
+
+	.kisi-resim img {
+		width: 100%;
+	}
+
+	.kisi-bilgi {
+		width: 270px;
+		float: left;
+		margin-left: 30px;
+	}
+
+	.kontroller {
+		width: 500px;
+		margin: 0 auto;
+	}
+
+	#sonraki {
+		float: right;
+	}
+
+	#slayt {
+		width: 600px;
+		height: 450px;
+		overflow: hidden;
+	}
+	</style>
+</head>
+<body>
+
+	<div class="swiper-container" id="slayt">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+        	<img src="http://placehold.it/600x400" />
+        	<h3>Slayt1</h3>
+        </div>
+        <div class="swiper-slide">
+        	<img src="http://placehold.it/600x400?text=Slayt+2" />
+        	<h3>Slayt2</h3>
+        </div>
+        <div class="swiper-slide">
+        	<img src="http://placehold.it/600x400?text=Slayt+3" />
+        	<h3>Slayt3</h3>
+        </div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+    
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+</div>
+
+	<div class="kisi">
+		<div class="kisi-resim">
+			<img src="http://ugurarici.com/assets/img/ugur-arici.jpg" />
+		</div>
+		<div class="kisi-bilgi">
+			<h3>Uğur Arıcı</h3>
+			<h4>Dijital Ürün Yöneticisi, Danışman</h4>
+			<p>Parçaların bütüne göre tasarlanması gerektiğine inanıyorum. Bütünün oluşturulması için süreç tasarımı ve danışmanlık yapıyor, dijital tarafı için fikirden üretime tam hizmet veriyorum.</p>
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<div class="kontroller">
+		<button id="onceki">Önceki</button>
+		<button id="sonraki">Sonraki</button>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.js"></script>
+	<script>
+var mySwiper = new Swiper ('#slayt', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    
+    // If we need pagination
+    pagination: '.swiper-pagination',
+    
+    // Navigation arrows
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    
+    // And if we need scrollbar
+    scrollbar: '.swiper-scrollbar',
+
+    autoplay: 300
+  })        
+	</script>
+	<script>
+		kisiler = [
+			["Uğur Arıcı", "http://ugurarici.com/assets/img/ugur-arici.jpg", "Dijital Ürün Yöneticisi, Danışman", "Parçaların bütüne göre tasarlanması gerektiğine inanıyorum. Bütünün oluşturulması için süreç tasarımı ve danışmanlık yapıyor, dijital tarafı için fikirden üretime tam hizmet veriyorum.", "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/005/05f/14b/25a9fdc.jpg"],
+			[
+				"Mark Zuckerberg",
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Mark_Zuckerberg_em_setembro_de_2014.jpg/220px-Mark_Zuckerberg_em_setembro_de_2014.jpg",
+				"CEO",
+				"Facebook'ta CEO",
+				"https://assets.fastcompany.com/image/upload/w_1280,f_auto,q_auto,fl_lossy/fc/59441-poster-p-1-facebooks-mark-zuckerberg-hacker-dropout-ceo.jpg"
+			],
+			[
+				"Ömer Çıtak",
+				"https://pbs.twimg.com/profile_images/577923054497452032/XgB0UWxe_400x400.jpeg",
+				"Hacker",
+				"heçkır :D",
+				"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAyfAAAAJGYzZTY2ZWI2LTRiOTMtNDA4Yi04ODRkLTE2YTIyMGUzMTlkOA.jpg"
+			]
+		];
+
+		gosterilen = 0;
+
+		$("#sonraki").bind('click', function(){
+			if(gosterilen == 2){
+				gosterilen = 0;
+			} else {
+				gosterilen++;				
+			}
+
+			kisiDegistir(gosterilen);
+		});
+
+		$("#onceki").bind('click', function(){
+			if(gosterilen == 0){
+				gosterilen = 2;
+			} else {
+				gosterilen--;				
+			}
+			kisiDegistir(gosterilen);
+		});
+
+		$(".kisi img").hover(function(){
+			$(this).attr("src", kisiler[gosterilen][4]);
+		}, function(){
+			$(this).attr("src", kisiler[gosterilen][1]);
+		});
+
+		function kisiDegistir(numara){
+			var resim = $(".kisi img");
+			var isim = $(".kisi h3");
+			var meslek = $(".kisi h4");
+			var aciklama = $(".kisi p");
+
+			var yeniKisi = kisiler[numara];
+			resim.attr("src", yeniKisi[1]);
+			isim.html(yeniKisi[0]);
+			meslek.html(yeniKisi[2]);
+			aciklama.html(yeniKisi[3]);
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
