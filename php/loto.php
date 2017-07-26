@@ -11,24 +11,11 @@
  * 5. Kolonların içerisindeki sayıları ekrana yazdıracağız.
  */
 
-$kolonlar = []; // Her bir kolonu tutan dizi
-$oynanacakKolonSayisi = 20;
+require "loto_functions.php";
 
-for($i=0; $i<$oynanacakKolonSayisi; $i++){
-	$kolon = [];
-	do {
-		// $yeniSayi = rand(1,49);
-		// if(!in_array($yeniSayi, $kolon))
-		// 	$kolon[] = $yeniSayi;
-		$kolon[] = rand(1,49);
-		$kolon = array_unique($kolon);
-	} while(count($kolon) < 6);
-	sort($kolon);
-	$kolonlar[] = $kolon;
-}
 ?>
 
-<?php foreach($kolonlar as $index => $kolon): ?>
+<?php foreach(kolonlarYarat(10) as $index => $kolon): ?>
 	<h3>Kolon <?php echo $index+1; ?></h3>
 	<p>
 		<?php foreach($kolon as $x => $sayi): ?>
@@ -37,29 +24,6 @@ for($i=0; $i<$oynanacakKolonSayisi; $i++){
 		<?php endforeach; ?>
 	</p>
 <?php endforeach; ?>
-
-
-
-
-
-
-
-<?php
-$dizi = range(1, 49); // $dizi = [1,2,3,4,5,6...49]
-shuffle($dizi); // $dizi = [23,14,66,45,1,3...]
-$sonuc = array_slice($dizi, 0, 6); // $sonuc = [23,14,66,45,1,3]
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
