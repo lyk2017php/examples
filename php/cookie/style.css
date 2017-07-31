@@ -1,0 +1,30 @@
+body{
+	font-size: 36px;
+}
+
+div.container{
+	width: 70%;
+	margin: 30px auto;
+}
+
+div.colors>a{
+	width: 20px;
+	height: 20px;
+	border: 1px solid #212121;
+	background-color: #000;
+	font-size: 0px;
+	display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

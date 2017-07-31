@@ -1,0 +1,16 @@
+.colors {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.colors li {
+	display: inline-block;
+}
+
+.colors li a {
+	display: block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #000;
+}
